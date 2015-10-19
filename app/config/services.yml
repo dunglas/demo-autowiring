@@ -1,0 +1,16 @@
+services:
+    rot13_transformer:
+        class: AppBundle\Rot13Transformer
+        autowiring_types: [ AppBundle\Rot13TransformerInterface ]
+
+    twitter_client:
+        class:    AppBundle\TwitterClient
+        autowire: true
+
+    uppercase_rot13_transformer:
+        class: AppBundle\UppercaseRot13Transformer
+        autowire: true
+
+    uppercase_twitter_client:
+        class: AppBundle\TwitterClient
+        arguments: [ @uppercase_rot13_transformer ]
